@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="calculator.js" defer></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="wrapper">
+        <div class="display">
+          <div class="previous-number"></div>
+          <div class="current-number">0</div>
+        </div>
+        <button data-key="8" value="clear" class="clear">AC</button>
+        <button
+          data-key="192"
+          type="button"
+          value="plus-minus"
+          class="plus-minus"
+        >
+          +/-
+        </button>
+        <button data-key="80" value="%" class="percent">%</button>
+        <button data-key="191" value="/" class="operator">/</button>
+
+        <button data-key="55" value="7" class="operand">7</button>
+        <button data-key="56" value="8" class="operand">8</button>
+        <button data-key="57" value="9" class="operand">9</button>
+        <button data-key="88" value="x" class="operator">x</button>
+
+        <button data-key="52" value="4" class="operand">4</button>
+        <button data-key="53" value="5" class="operand">5</button>
+        <button data-key="54" value="6" class="operand">6</button>
+        <button data-key="189" value="-" class="operator">-</button>
+
+        <button data-key="49" value="1" class="operand">1</button>
+        <button data-key="50" value="2" class="operand">2</button>
+        <button data-key="51" value="3" class="operand">3</button>
+        <button data-key="43" value="+" class="operator">+</button>
+
+        <button data-key="48" id="zero" value="0" class="operand">0</button>
+        <button data-key="190" value="." class="dot operand">.</button>
+        <button data-key="187" value="=" class="equal">=</button>
+      </div>
+    </div>
+  </body>
+</html>
