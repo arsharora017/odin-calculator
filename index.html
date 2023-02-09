@@ -16,15 +16,10 @@
           <div class="current-number">0</div>
         </div>
         <button data-key="8" value="clear" class="clear">AC</button>
-        <button
-          data-key="192"
-          type="button"
-          value="plus-minus"
-          class="plus-minus"
-        >
+        <button data-key="192" type="button" id="invert-sign" class="operator">
           +/-
         </button>
-        <button data-key="80" value="%" class="percent">%</button>
+        <button data-key="80" value="%" id="percent" class="operator">%</button>
         <button data-key="191" value="/" class="operator">/</button>
 
         <button data-key="55" value="7" class="operand">7</button>
@@ -43,7 +38,7 @@
         <button data-key="43" value="+" class="operator">+</button>
 
         <button data-key="48" id="zero" value="0" class="operand">0</button>
-        <button data-key="190" value="." class="dot operand">.</button>
+        <button data-key="190" id="decimal" class="decimal">.</button>
         <button data-key="187" value="=" class="equal">=</button>
       </div>
     </div>

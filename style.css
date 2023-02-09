@@ -40,7 +40,8 @@ button {
   color: white;
 }
 
-.operand {
+.operand,
+.decimal {
   background-color: rgb(112, 112, 112);
   opacity: 95%;
 }
@@ -52,7 +53,7 @@ button {
 }
 
 .clear,
-.plus-minus,
-.percent {
+#invert-sign,
+#percent {
   background-color: rgb(191, 191, 191);
 }
