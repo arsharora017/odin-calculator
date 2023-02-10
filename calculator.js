@@ -78,6 +78,7 @@ function handleOperator(op) {
 }
 
 function operatorCheck(val) {
+  // if(val === "+/-") ---can make changes here
   operator = val;
   previousDisplayNumber.textContent = previousNum + " " + operator;
   currentDisplayNumber.textContent = "0";
@@ -102,12 +103,19 @@ function calculate() {
   } else if (operator === "x" || operator === "*") {
     previousNum = previousNum * currentNum;
   } else if (operator === "%") {
-    previousNum = 100 / currentNum;
+    currentNum = currentNum / 100;
   }
 
   previousNum = previousNum.toString();
   displayResults();
   operator = "";
+
+  //for +/-
+  // if (operator === "+/-") {
+  //   currentNum = currentNum + -1;
+  //   currentDisplayNumber.textContent = currentNum;
+  //   console.log(typeof currentNum);
+  // }
 }
 
 function displayResults() {
@@ -172,7 +180,17 @@ function handleKeyPress(e) {
     addDecimal();
   }
 
-  if (e.key === "backspace") {
+  if (e.key === "Backspace") {
     handleDelete();
+  }
+}
+
+function handleDelete() {
+  if (currentNum !== "") {
+    currentNum = currentNum.slice(0, -1);
+    currentDisplayNumber.textContent = currentNum;
+  }
+  if (currentNum === "") {
+    currentDisplayNumber.textContent = "0";
   }
 }
