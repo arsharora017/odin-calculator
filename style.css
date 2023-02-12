@@ -35,6 +35,7 @@
 .previous-number {
   height: 4rem;
   font-size: 3.9rem;
+  color: rgb(177, 175, 175);
 }
 
 #zero {
@@ -65,4 +66,37 @@ button {
 #invert-sign,
 #percent {
   background-color: rgb(191, 191, 191);
+}
+
+.operand:hover {
+  background-color: rgb(173, 171, 171);
+}
+.decimal:hover {
+  background-color: rgb(173, 171, 171);
+}
+
+.operator:hover {
+  background-color: rgb(195, 121, 17);
+}
+
+.equal:hover {
+  background-color: rgb(195, 121, 17);
+}
+
+.clear:hover {
+  background-color: rgb(138, 137, 137);
+}
+
+#invert-sign:hover {
+  background-color: rgb(138, 137, 137);
+}
+
+#percent:hover {
+  background-color: rgb(138, 137, 137);
+}
+
+button:active {
+  background-color: rgb(173, 171, 171);
+  box-shadow: 0 1px #666;
+  transform: translateY(1px);
 }

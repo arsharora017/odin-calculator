@@ -1,6 +1,8 @@
 let currentNum = "";
 let previousNum = "";
 let operator = "";
+let invertClicked = false;
+
 const wrapper = document.querySelector(".wrapper");
 const numberButtons = document.querySelectorAll(".operand");
 const operatorButtons = document.querySelectorAll(".operator");
@@ -28,10 +30,11 @@ decimal.addEventListener("click", () => {
   addDecimal();
 });
 
-// window.addEventListener("keydown", function (e) {
-//   const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
-//   key.click();
-// });
+//invert signs
+const invertSign = document.querySelector(".invert-sign");
+invertSign.addEventListener("click", () => {
+  handleInvertSign();
+});
 
 //added eventLintener to each operand button click
 numberButtons.forEach((btn) => {
@@ -59,6 +62,7 @@ function handleNumber(number) {
 operatorButtons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     handleOperator(e.target.textContent);
+    console.log(e.target.textContent);
   });
 });
 
@@ -78,12 +82,21 @@ function handleOperator(op) {
 }
 
 function operatorCheck(val) {
-  // if(val === "+/-") ---can make changes here
+  if (val === "%") {
+    percentOperator();
+  }
   operator = val;
   previousDisplayNumber.textContent = previousNum + " " + operator;
   currentDisplayNumber.textContent = "0";
   currentNum = "";
 }
+
+// function percentOperator() {
+//   currentNum = Number(currentNum);
+//   currentNum = (currentNum / 100).toString();
+//   currentDisplayNumber.textContent = currentNum;
+//   console.log(currentNum);
+// }
 
 function calculate() {
   previousNum = Number(previousNum);
@@ -109,13 +122,6 @@ function calculate() {
   previousNum = previousNum.toString();
   displayResults();
   operator = "";
-
-  //for +/-
-  // if (operator === "+/-") {
-  //   currentNum = currentNum + -1;
-  //   currentDisplayNumber.textContent = currentNum;
-  //   console.log(typeof currentNum);
-  // }
 }
 
 function displayResults() {
@@ -125,6 +131,7 @@ function displayResults() {
   } else {
     currentDisplayNumber.textContent = previousNum.slice(0, 8);
   }
+
   previousDisplayNumber.textContent = ""; //clearing prev number
   operator = "";
   currentNum = "";
@@ -149,6 +156,7 @@ function addDecimal() {
   }
 }
 
+//this function controls keyboard click
 function handleKeyPress(e) {
   console.log(e.key);
   if (e.key >= 0 || e.key <= 9) {
@@ -194,3 +202,18 @@ function handleDelete() {
     currentDisplayNumber.textContent = "0";
   }
 }
+
+function handleInvertSign() {
+  if (currentNum !== "" || currentNum !== "0") {
+    currentNum = currentNum * -1;
+    currentDisplayNumber.textContent = currentNum;
+  }
+}
+
+// function percentOperator() {
+//   currentNum = Number(currentNum);
+//   currentNum = (currentNum / 100).toString();
+//   currentDisplayNumber.textContent = currentNum;
+//   previousDisplayNumber.textContent = "";
+//   console.log(currentNum);
+// }
