@@ -55,8 +55,6 @@ function handleNumber(number) {
     //we are concatintating string
     currentDisplayNumber.textContent = currentNum;
   }
-  // if (currentNum.includes(".")) {
-  // }
 }
 
 operatorButtons.forEach((btn) => {
@@ -72,6 +70,8 @@ function handleOperator(op) {
     operatorCheck(op);
   } else if (currentNum === "") {
     operatorCheck(op);
+  } else if (op === "%") {
+    //do nothing
   } else {
     calculate();
     operator = op;
@@ -84,26 +84,30 @@ function handleOperator(op) {
 function operatorCheck(val) {
   if (val === "%") {
     percentOperator();
+  } else {
+    operator = val;
+    previousDisplayNumber.textContent = previousNum + " " + operator;
+    currentDisplayNumber.textContent = "0";
+    currentNum = "";
   }
-  operator = val;
-  previousDisplayNumber.textContent = previousNum + " " + operator;
-  currentDisplayNumber.textContent = "0";
-  currentNum = "";
 }
 
-// function percentOperator() {
-//   currentNum = Number(currentNum);
-//   currentNum = (currentNum / 100).toString();
-//   currentDisplayNumber.textContent = currentNum;
-//   console.log(currentNum);
-// }
+function percentOperator() {
+  currentNum = Number(currentNum);
+  currentNum = (currentNum / 100).toString();
+  previousNum = currentNum;
+  currentDisplayNumber.textContent = currentNum;
+  previousDisplayNumber.textContent = "";
+  console.log(currentNum);
+}
 
 function calculate() {
   previousNum = Number(previousNum);
   currentNum = Number(currentNum);
+  console.log(currentNum);
 
   if (operator === "+") {
-    previousNum += currentNum;
+    previousNum = previousNum + currentNum;
   } else if (operator === "-") {
     previousNum = previousNum - currentNum;
   } else if (operator === "/") {
@@ -115,8 +119,6 @@ function calculate() {
     previousNum = previousNum / currentNum;
   } else if (operator === "x" || operator === "*") {
     previousNum = previousNum * currentNum;
-  } else if (operator === "%") {
-    currentNum = currentNum / 100;
   }
 
   previousNum = previousNum.toString();
@@ -133,6 +135,7 @@ function displayResults() {
   }
 
   previousDisplayNumber.textContent = ""; //clearing prev number
+
   operator = "";
   currentNum = "";
 }
@@ -209,11 +212,3 @@ function handleInvertSign() {
     currentDisplayNumber.textContent = currentNum;
   }
 }
-
-// function percentOperator() {
-//   currentNum = Number(currentNum);
-//   currentNum = (currentNum / 100).toString();
-//   currentDisplayNumber.textContent = currentNum;
-//   previousDisplayNumber.textContent = "";
-//   console.log(currentNum);
-// }
