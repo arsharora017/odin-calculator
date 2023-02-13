@@ -1,7 +1,6 @@
 let currentNum = "";
 let previousNum = "";
 let operator = "";
-let invertClicked = false;
 
 const wrapper = document.querySelector(".wrapper");
 const numberButtons = document.querySelectorAll(".operand");
@@ -60,7 +59,6 @@ function handleNumber(number) {
 operatorButtons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     handleOperator(e.target.textContent);
-    console.log(e.target.textContent);
   });
 });
 
@@ -127,7 +125,6 @@ function calculate() {
 }
 
 function displayResults() {
-  //currentDisplayNumber.textContent = previousNum;
   if (previousNum.length < 8) {
     currentDisplayNumber.textContent = previousNum;
   } else {
